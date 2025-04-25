@@ -1,0 +1,7 @@
+std_msgs/Header header
+
+uint64 num_iter
+float64 optim_duration
+geometry_msgs/Vector3 res_abs_position
+float64 res_abs_direction
+uint8 cv_reached

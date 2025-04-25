@@ -1,0 +1,6 @@
+float64 overlap
+float64 overlap_static
+float64 distance_to_map
+float64 processing_time
+uint64  num_points_frame
+uint64  num_points_icp

@@ -31,16 +31,19 @@ endif()
 
 # Build messages
 #------------------------------------------------------------------------------#
-file(GLOB msg_files RELATIVE ${CMAKE_CURRENT_LIST_DIR} "msg/*.msg")
-file(GLOB srv_files RELATIVE ${CMAKE_CURRENT_LIST_DIR} "srv/*.srv")
-
 if(${ROS_VERSION} EQUAL 1)
+    file(GLOB msg_files RELATIVE ${CMAKE_CURRENT_LIST_DIR}/msg "msg/*.msg")
+    file(GLOB srv_files RELATIVE ${CMAKE_CURRENT_LIST_DIR}/srv "srv/*.srv")
+
     add_message_files(DIRECTORY msg FILES ${msg_files})
     add_service_files(DIRECTORY srv ${srv_files})
     generate_messages(DEPENDENCIES std_msgs geometry_msgs)
     catkin_package(CATKIN_DEPENDS message_runtime roscpp rospy std_msgs)
 
 elseif(${ROS_VERSION} EQUAL 2)
+    file(GLOB msg_files RELATIVE ${CMAKE_CURRENT_LIST_DIR} "msg/*.msg")
+    file(GLOB srv_files RELATIVE ${CMAKE_CURRENT_LIST_DIR} "srv/*.srv")
+
     rosidl_generate_interfaces(exwayz_msgs ${msg_files} ${srv_files}
             DEPENDENCIES builtin_interfaces geometry_msgs std_msgs)
 

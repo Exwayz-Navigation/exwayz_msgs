@@ -36,7 +36,7 @@ if(${ROS_VERSION} EQUAL 1)
     file(GLOB srv_files RELATIVE ${CMAKE_CURRENT_LIST_DIR}/srv "srv/*.srv")
 
     add_message_files(DIRECTORY msg FILES ${msg_files})
-    add_service_files(DIRECTORY srv ${srv_files})
+    add_service_files(DIRECTORY srv FILES ${srv_files})
     generate_messages(DEPENDENCIES std_msgs geometry_msgs)
     catkin_package(CATKIN_DEPENDS message_runtime roscpp rospy std_msgs)
 

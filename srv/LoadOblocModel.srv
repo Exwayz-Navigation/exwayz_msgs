@@ -1,0 +1,4 @@
+std_msgs/String path
+---
+bool success   # indicate successful reception of triggered service
+string message # informational, e.g. for error messages
